@@ -1,0 +1,18 @@
+
+
+// SQL Query
+
+SELECT DEPT_NAME, AVG(MONTHLY_SALARY) AS AVG_MONTHLY_SALARY
+        FROM (
+        SELECT DEPT_NAME, MONTHLY_SALARY
+        FROM Sheet1
+        UNION ALL
+        SELECT DEPT_NAME, MONTHLY_SALARY
+        FROM Sheet2
+        UNION ALL
+        SELECT DEPT_NAME, MONTHLY_SALARY
+        FROM Sheet3
+        ) AS combined_data
+        GROUP BY DEPT_NAME
+        ORDER BY AVG_MONTHLY_SALARY DESC
+        LIMIT 3;
